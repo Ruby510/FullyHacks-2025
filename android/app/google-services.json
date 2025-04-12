@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "213188181457",
+    "project_id": "fully-hack-y0ne8g",
+    "storage_bucket": "fully-hack-y0ne8g.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:213188181457:android:14e101ccbcb87441faf4f0",
+        "android_client_info": {
+          "package_name": "com.mycompany.fullyhack"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "213188181457-7hiv7qst03ore3pudfjr2obcbdtrtv3k.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mycompany.fullyhack",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "213188181457-s1gvjj9m2u1jnl6ouot51034hrd8i9dk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCDSqFnNLUKAyFS9uSfMmNtGcusIBDKbfI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "213188181457-s1gvjj9m2u1jnl6ouot51034hrd8i9dk.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "213188181457-l687bnp5jkueckjgaqbjvh2k6i2fpn4n.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mycompany.fullyhack"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
