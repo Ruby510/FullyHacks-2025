@@ -9,22 +9,22 @@ import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:percent_indicator/percent_indicator.dart';
-import 'quiz_page_model.dart';
-export 'quiz_page_model.dart';
+import 'quiz_page3_model.dart';
+export 'quiz_page3_model.dart';
 
-class QuizPageWidget extends StatefulWidget {
-  const QuizPageWidget({super.key});
+class QuizPage3Widget extends StatefulWidget {
+  const QuizPage3Widget({super.key});
 
-  static String routeName = 'QuizPage';
-  static String routePath = '/quizPage';
+  static String routeName = 'QuizPage3';
+  static String routePath = '/quizPage3';
 
   @override
-  State<QuizPageWidget> createState() => _QuizPageWidgetState();
+  State<QuizPage3Widget> createState() => _QuizPage3WidgetState();
 }
 
-class _QuizPageWidgetState extends State<QuizPageWidget>
+class _QuizPage3WidgetState extends State<QuizPage3Widget>
     with TickerProviderStateMixin {
-  late QuizPageModel _model;
+  late QuizPage3Model _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -33,7 +33,7 @@ class _QuizPageWidgetState extends State<QuizPageWidget>
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => QuizPageModel());
+    _model = createModel(context, () => QuizPage3Model());
 
     animationsMap.addAll({
       'textOnPageLoadAnimation1': AnimationInfo(
@@ -170,7 +170,7 @@ class _QuizPageWidgetState extends State<QuizPageWidget>
                           padding: EdgeInsetsDirectional.fromSTEB(
                               16.0, 12.0, 0.0, 0.0),
                           child: Text(
-                            'Question 2/3',
+                            'Question 2/4',
                             style: FlutterFlowTheme.of(context)
                                 .labelMedium
                                 .override(
@@ -184,12 +184,12 @@ class _QuizPageWidgetState extends State<QuizPageWidget>
                         padding:
                             EdgeInsetsDirectional.fromSTEB(8.0, 12.0, 8.0, 0.0),
                         child: LinearPercentIndicator(
-                          percent: 0.6,
+                          percent: 0.75,
                           width: MediaQuery.sizeOf(context).width * 0.96,
                           lineHeight: 12.0,
                           animation: true,
                           animateFromLastPercent: true,
-                          progressColor: FlutterFlowTheme.of(context).primary,
+                          progressColor: Color(0xFFB639EF),
                           backgroundColor: Color(0xFFE0E3E7),
                           barRadius: Radius.circular(24.0),
                           padding: EdgeInsets.zero,
@@ -254,10 +254,9 @@ class _QuizPageWidgetState extends State<QuizPageWidget>
                                       controller: _model
                                               .checkboxGroupValueController ??=
                                           FormFieldController<List<String>>(
-                                        [],
+                                        List.from([''] ?? []),
                                       ),
-                                      activeColor:
-                                          FlutterFlowTheme.of(context).primary,
+                                      activeColor: Color(0x00000000),
                                       checkColor: Colors.white,
                                       checkboxBorderColor:
                                           FlutterFlowTheme.of(context)
@@ -299,7 +298,7 @@ class _QuizPageWidgetState extends State<QuizPageWidget>
                     child: FFButtonWidget(
                       onPressed: () async {
                         context.pushNamed(
-                          HomePageWidget.routeName,
+                          QuizPage4Widget.routeName,
                           extra: <String, dynamic>{
                             kTransitionInfoKey: TransitionInfo(
                               hasTransition: true,
@@ -317,7 +316,7 @@ class _QuizPageWidgetState extends State<QuizPageWidget>
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                         iconPadding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        color: FlutterFlowTheme.of(context).primary,
+                        color: Color(0xFFB639EF),
                         textStyle:
                             FlutterFlowTheme.of(context).titleSmall.override(
                                   fontFamily: 'Inter Tight',
