@@ -1,6 +1,12 @@
+import '/components/custom1_widget.dart';
+import '/components/custom2_widget.dart';
+import '/components/custom3_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
+import '/index.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'home_page_model.dart';
 export 'home_page_model.dart';
 
@@ -41,26 +47,114 @@ class _HomePageWidgetState extends State<HomePageWidget> {
       },
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        backgroundColor: Color(0xBA2E0D6E),
         body: SafeArea(
           top: true,
-          child: Row(
-            mainAxisSize: MainAxisSize.max,
+          child: Stack(
             children: [
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 0.0, 0.0),
-                child: Container(
-                  width: 50.0,
-                  height: 50.0,
-                  decoration: BoxDecoration(
-                    color: FlutterFlowTheme.of(context).secondaryBackground,
+              Stack(
+                children: [
+                  Column(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Lottie.asset(
+                        'assets/jsons/lf20_XZ3pkn.json\"',
+                        width: 300.0,
+                        height: 300.0,
+                        fit: BoxFit.contain,
+                        animate: true,
+                      ),
+                      Padding(
+                        padding: EdgeInsets.all(24.0),
+                        child: Container(
+                          width: double.infinity,
+                          decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                              colors: [Color(0xFF3A3F5A), Color(0xFF2D3250)],
+                              stops: [0.0, 1.0],
+                              begin: AlignmentDirectional(1.0, 1.0),
+                              end: AlignmentDirectional(-1.0, -1.0),
+                            ),
+                            borderRadius: BorderRadius.circular(16.0),
+                          ),
+                          child: wrapWithModel(
+                            model: _model.custom1Model,
+                            updateCallback: () => safeSetState(() {}),
+                            child: Custom1Widget(),
+                          ),
+                        ),
+                      ),
+                      FFButtonWidget(
+                        onPressed: () async {
+                          context.pushNamed(QuizPageWidget.routeName);
+                        },
+                        text: 'Track Launch',
+                        options: FFButtonOptions(
+                          width: 200.0,
+                          height: 50.0,
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              24.0, 0.0, 24.0, 0.0),
+                          iconPadding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 0.0),
+                          color: Color(0xFFAB4DFF),
+                          textStyle:
+                              FlutterFlowTheme.of(context).titleSmall.override(
+                                    fontFamily: 'Inter Tight',
+                                    color: Colors.white,
+                                    letterSpacing: 0.0,
+                                  ),
+                          elevation: 3.0,
+                          borderSide: BorderSide(
+                            color: Colors.transparent,
+                            width: 1.0,
+                          ),
+                          borderRadius: BorderRadius.circular(30.0),
+                        ),
+                      ),
+                      Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Container(
+                            width: 12.0,
+                            height: 12.0,
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              shape: BoxShape.circle,
+                            ),
+                          ),
+                          Container(
+                            width: 12.0,
+                            height: 12.0,
+                            decoration: BoxDecoration(
+                              color: Color(0x80FFFFFF),
+                              shape: BoxShape.circle,
+                            ),
+                          ),
+                          Container(
+                            width: 12.0,
+                            height: 12.0,
+                            decoration: BoxDecoration(
+                              color: Color(0x40FFFFFF),
+                              shape: BoxShape.circle,
+                            ),
+                          ),
+                        ].divide(SizedBox(width: 8.0)),
+                      ),
+                    ].divide(SizedBox(height: 24.0)),
                   ),
-                  child: Icon(
-                    Icons.menu,
-                    color: FlutterFlowTheme.of(context).primaryText,
-                    size: 24.0,
+                  wrapWithModel(
+                    model: _model.custom2Model,
+                    updateCallback: () => safeSetState(() {}),
+                    child: Custom2Widget(),
                   ),
-                ),
+                ],
+              ),
+              wrapWithModel(
+                model: _model.custom3Model,
+                updateCallback: () => safeSetState(() {}),
+                child: Custom3Widget(),
               ),
             ],
           ),
