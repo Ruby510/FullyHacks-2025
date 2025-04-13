@@ -44,6 +44,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: HomePageWidget.routeName,
           path: HomePageWidget.routePath,
           builder: (context, params) => HomePageWidget(),
+        ),
+        FFRoute(
+          name: QuizPageWidget.routeName,
+          path: QuizPageWidget.routePath,
+          builder: (context, params) => QuizPageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
@@ -115,7 +120,6 @@ class FFParameters {
     String paramName,
     ParamType type, {
     bool isList = false,
-    List<String>? collectionNamePath,
   }) {
     if (futureParamValues.containsKey(paramName)) {
       return futureParamValues[paramName];
@@ -133,7 +137,6 @@ class FFParameters {
       param,
       type,
       isList,
-      collectionNamePath: collectionNamePath,
     );
   }
 }
