@@ -41,9 +41,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, _) => HomePageWidget(),
         ),
         FFRoute(
-          name: QuizPageWidget.routeName,
-          path: QuizPageWidget.routePath,
-          builder: (context, params) => QuizPageWidget(),
+          name: QuizPage1Widget.routeName,
+          path: QuizPage1Widget.routePath,
+          builder: (context, params) => QuizPage1Widget(),
+        ),
+        FFRoute(
+          name: HomePageWidget.routeName,
+          path: HomePageWidget.routePath,
+          builder: (context, params) => HomePageWidget(),
         ),
         FFRoute(
           name: QuizPage2Widget.routeName,
@@ -54,16 +59,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: QuizPage3Widget.routeName,
           path: QuizPage3Widget.routePath,
           builder: (context, params) => QuizPage3Widget(),
-        ),
-        FFRoute(
-          name: QuizPage4Widget.routeName,
-          path: QuizPage4Widget.routePath,
-          builder: (context, params) => QuizPage4Widget(),
-        ),
-        FFRoute(
-          name: HomePageWidget.routeName,
-          path: HomePageWidget.routePath,
-          builder: (context, params) => HomePageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

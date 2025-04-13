@@ -87,7 +87,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                       ),
                       FFButtonWidget(
                         onPressed: () async {
-                          context.pushNamed(QuizPageWidget.routeName);
+                          context.pushNamed(QuizPage1Widget.routeName);
                         },
                         text: 'Track Launch',
                         options: FFButtonOptions(
