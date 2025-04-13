@@ -9,6 +9,7 @@ import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:percent_indicator/percent_indicator.dart';
+import 'package:provider/provider.dart';
 import 'quiz_page_model.dart';
 export 'quiz_page_model.dart';
 
@@ -111,6 +112,8 @@ class _QuizPageWidgetState extends State<QuizPageWidget>
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();
@@ -123,7 +126,7 @@ class _QuizPageWidgetState extends State<QuizPageWidget>
           backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
           automaticallyImplyLeading: false,
           title: Text(
-            'Question 2',
+            'Question 1',
             style: FlutterFlowTheme.of(context).displaySmall.override(
                   fontFamily: 'Inter Tight',
                   letterSpacing: 0.0,
@@ -143,8 +146,10 @@ class _QuizPageWidgetState extends State<QuizPageWidget>
                   color: FlutterFlowTheme.of(context).secondaryText,
                   size: 30.0,
                 ),
-                onPressed: () {
-                  print('IconButton pressed ...');
+                onPressed: () async {
+                  Navigator.pop(context);
+
+                  context.pushNamed(HomePageWidget.routeName);
                 },
               ),
             ),
@@ -238,46 +243,58 @@ class _QuizPageWidgetState extends State<QuizPageWidget>
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               children: [
-                                Expanded(
-                                  child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 12.0, 0.0, 12.0),
-                                    child: FlutterFlowCheckboxGroup(
-                                      options: [
-                                        'Jupiter',
-                                        'Venus',
-                                        'Mars',
-                                        'Saturn'
-                                      ],
-                                      onChanged: (val) => safeSetState(() =>
-                                          _model.checkboxGroupValues = val),
-                                      controller: _model
-                                              .checkboxGroupValueController ??=
-                                          FormFieldController<List<String>>(
-                                        List.from([''] ?? []),
-                                      ),
-                                      activeColor: Color(0x00000000),
-                                      checkColor: Colors.white,
-                                      checkboxBorderColor:
-                                          FlutterFlowTheme.of(context)
-                                              .secondaryText,
-                                      textStyle: FlutterFlowTheme.of(context)
-                                          .labelLarge
-                                          .override(
-                                            fontFamily: 'Inter',
-                                            letterSpacing: 0.0,
-                                          ),
-                                      itemPadding:
-                                          EdgeInsetsDirectional.fromSTEB(
-                                              0.0, 0.0, 0.0, 12.0),
-                                      checkboxBorderRadius:
-                                          BorderRadius.circular(4.0),
-                                      initialized:
-                                          _model.checkboxGroupValues != null,
-                                    ).animateOnPageLoad(animationsMap[
-                                        'checkboxGroupOnPageLoadAnimation']!),
+                                if (valueOrDefault<bool>(
+                                      FFAppState()
+                                          .selectedAnswer
+                                          .contains('Mars'),
+                                      false,
+                                    ) &&
+                                    (FFAppState().score == 1))
+                                  Expanded(
+                                    child: Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 12.0, 0.0, 12.0),
+                                      child: FlutterFlowCheckboxGroup(
+                                        options: [
+                                          'Jupiter',
+                                          'Venus',
+                                          'Mars',
+                                          'Saturn'
+                                        ],
+                                        onChanged: (val) async {
+                                          safeSetState(() =>
+                                              _model.checkboxGroupValues = val);
+                                          FFAppState().selectedAnswer =
+                                              [].toList().cast<String>();
+                                          safeSetState(() {});
+                                        },
+                                        controller: _model
+                                                .checkboxGroupValueController ??=
+                                            FormFieldController<List<String>>(
+                                          List.from([''] ?? []),
+                                        ),
+                                        activeColor: Color(0x00000000),
+                                        checkColor: Colors.white,
+                                        checkboxBorderColor:
+                                            FlutterFlowTheme.of(context)
+                                                .secondaryText,
+                                        textStyle: FlutterFlowTheme.of(context)
+                                            .labelLarge
+                                            .override(
+                                              fontFamily: 'Inter',
+                                              letterSpacing: 0.0,
+                                            ),
+                                        itemPadding:
+                                            EdgeInsetsDirectional.fromSTEB(
+                                                0.0, 0.0, 0.0, 12.0),
+                                        checkboxBorderRadius:
+                                            BorderRadius.circular(4.0),
+                                        initialized:
+                                            _model.checkboxGroupValues != null,
+                                      ).animateOnPageLoad(animationsMap[
+                                          'checkboxGroupOnPageLoadAnimation']!),
+                                    ),
                                   ),
-                                ),
                               ],
                             ),
                           ),

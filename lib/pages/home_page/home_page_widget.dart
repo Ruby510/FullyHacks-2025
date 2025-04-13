@@ -47,7 +47,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
       },
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: Color(0xBA2E0D6E),
+        backgroundColor: Color(0xBA950DCC),
         body: SafeArea(
           top: true,
           child: Stack(

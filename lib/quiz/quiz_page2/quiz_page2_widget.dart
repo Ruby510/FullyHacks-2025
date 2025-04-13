@@ -143,8 +143,8 @@ class _QuizPage2WidgetState extends State<QuizPage2Widget>
                   color: FlutterFlowTheme.of(context).secondaryText,
                   size: 30.0,
                 ),
-                onPressed: () {
-                  print('IconButton pressed ...');
+                onPressed: () async {
+                  context.pushNamed(HomePageWidget.routeName);
                 },
               ),
             ),

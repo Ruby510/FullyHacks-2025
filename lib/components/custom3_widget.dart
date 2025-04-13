@@ -1,5 +1,6 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'custom3_model.dart';
 export 'custom3_model.dart';
@@ -44,25 +45,43 @@ class _Custom3WidgetState extends State<Custom3Widget> {
         children: [
           Padding(
             padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 200.0, 0.0),
-            child: Container(
-              width: 0.0,
-              height: 100.0,
-              decoration: BoxDecoration(
-                color: FlutterFlowTheme.of(context).secondaryBackground,
-                borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(12.0),
-                  bottomRight: Radius.circular(12.0),
-                  topLeft: Radius.circular(12.0),
-                  topRight: Radius.circular(12.0),
+            child: InkWell(
+              splashColor: Colors.transparent,
+              focusColor: Colors.transparent,
+              hoverColor: Colors.transparent,
+              highlightColor: Colors.transparent,
+              onTap: () async {
+                context.pushNamed(QuizPageWidget.routeName);
+              },
+              child: Container(
+                width: 0.0,
+                height: 100.0,
+                decoration: BoxDecoration(
+                  color: FlutterFlowTheme.of(context).secondaryBackground,
+                  borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(12.0),
+                    bottomRight: Radius.circular(12.0),
+                    topLeft: Radius.circular(12.0),
+                    topRight: Radius.circular(12.0),
+                  ),
                 ),
-              ),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(8.0),
-                child: Image.network(
-                  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4FkLqVXE3REo1SpD16KP3HAN_LrF48vMxOA&s',
-                  width: 200.0,
-                  height: 200.0,
-                  fit: BoxFit.scaleDown,
+                child: InkWell(
+                  splashColor: Colors.transparent,
+                  focusColor: Colors.transparent,
+                  hoverColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
+                  onTap: () async {
+                    context.pushNamed(QuizPageWidget.routeName);
+                  },
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(8.0),
+                    child: Image.network(
+                      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4FkLqVXE3REo1SpD16KP3HAN_LrF48vMxOA&s',
+                      width: 200.0,
+                      height: 200.0,
+                      fit: BoxFit.scaleDown,
+                    ),
+                  ),
                 ),
               ),
             ),
@@ -80,10 +99,19 @@ class _Custom3WidgetState extends State<Custom3Widget> {
                       fontWeight: FontWeight.w500,
                     ),
               ),
-              Icon(
-                Icons.arrow_forward_sharp,
-                color: FlutterFlowTheme.of(context).primaryBackground,
-                size: 24.0,
+              InkWell(
+                splashColor: Colors.transparent,
+                focusColor: Colors.transparent,
+                hoverColor: Colors.transparent,
+                highlightColor: Colors.transparent,
+                onTap: () async {
+                  context.pushNamed(QuizPageWidget.routeName);
+                },
+                child: Icon(
+                  Icons.arrow_forward_sharp,
+                  color: FlutterFlowTheme.of(context).primaryBackground,
+                  size: 24.0,
+                ),
               ),
             ],
           ),

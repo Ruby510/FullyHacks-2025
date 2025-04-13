@@ -123,7 +123,7 @@ class _QuizPage3WidgetState extends State<QuizPage3Widget>
           backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
           automaticallyImplyLeading: false,
           title: Text(
-            'Question 2',
+            'Question 3',
             style: FlutterFlowTheme.of(context).displaySmall.override(
                   fontFamily: 'Inter Tight',
                   letterSpacing: 0.0,
@@ -143,8 +143,8 @@ class _QuizPage3WidgetState extends State<QuizPage3Widget>
                   color: FlutterFlowTheme.of(context).secondaryText,
                   size: 30.0,
                 ),
-                onPressed: () {
-                  print('IconButton pressed ...');
+                onPressed: () async {
+                  context.pushNamed(HomePageWidget.routeName);
                 },
               ),
             ),
@@ -170,7 +170,7 @@ class _QuizPage3WidgetState extends State<QuizPage3Widget>
                           padding: EdgeInsetsDirectional.fromSTEB(
                               16.0, 12.0, 0.0, 0.0),
                           child: Text(
-                            'Question 2/4',
+                            'Question 3/4',
                             style: FlutterFlowTheme.of(context)
                                 .labelMedium
                                 .override(
